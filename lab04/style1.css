@@ -1,0 +1,165 @@
+body {
+  font: 16px "Comic Sans MS", cursive;
+  background: url("Blue-rule.png");
+}
+
+p:before {
+  content: url("Yellow-pin.png");
+}
+
+#first {
+  font-style: italic;
+  color: blue;
+}
+
+#second {
+  color: blue;
+}
+
+initial {
+  background-color: #31468e; 
+  color: red;
+  font: 200% serif;
+}
+
+.color1 {
+  color: green;
+  background-color: #31468e;
+}
+
+.color2 {
+  color: blue;
+  background-color: #31468e;
+}
+
+.color3 {
+  color: yellow;
+  background-color: #31468e;
+}
+
+.color4 {
+  color: magenta;
+  background-color: #31468e;
+}
+
+.color5 {
+  color: cyan;
+  background-color: #31468e;
+}
+
+h3.numbered {counter-reset: mynum;}
+
+p.numbered:before {
+  content: counter(mynum) ": ";
+  counter-increment: mynum;
+  font-weight: bold;
+}
+
+li {
+  list-style: lower-roman;
+}
+
+body {counter-reset: headnum;}
+h3 {border-top: 1px solid gray;}
+
+h3:before {
+  content: "(" counter(headnum, upper-latin) ") ";
+  counter-increment: headnum;
+}
+
+#third {
+  border: 10px solid lightblue;
+}
+
+ul {
+  border: 10px solid lightblue;
+}
+
+li {
+  list-style: lower-roman;
+  margin-bottom: 8px;
+  }
+
+#fixed-pin  {
+  position:fixed;
+  top: 3px;
+  right: 3px;
+}
+
+#demo-table tbody td {
+  border:1px solid #7a7;
+}
+
+#demo-table {
+  font: 100% sans-serif;
+  background-color: #efe;
+  border-collapse: collapse;
+  empty-cells: show;
+  border: 1px solid #7a7;
+}
+
+#demo-table > caption {
+  text-align: left;
+  font-weight: bold;
+  font-size: 200%;
+  border-bottom: .2em solid #4ca;
+  margin-bottom: .5em;
+}
+
+#demo-table th,
+#demo-table td {
+  text-align: right;
+  padding-right: .5em;
+}
+
+#demo-table th {
+  font-weight: bold;
+  padding-left: .5em;
+}
+
+#demo-table > thead > tr:first-child > th {
+  text-align: center;
+  color: blue;
+}
+
+#demo-table > thead > tr + tr > th {
+  font-style: italic;
+  color: gray;
+}
+
+#demo-table sup {
+  font-size: 75%;
+}
+
+#demo-table td {
+  background-color: #cef;
+  padding:.5em .5em .5em 3em;
+}
+
+#demo-table tbody th:after {
+  content: ":";
+}
+
+#demo-table tfoot {
+  font-weight: bold;
+}
+
+#demo-table tfoot th {
+  color: blue;
+}
+
+#demo-table tfoot th:after {
+  content: ":";
+}
+
+#demo-table > tfoot td {
+  background-color: #cee;
+}
+
+#demo-table > tfoot > tr:first-child td {
+  border-top: .2em solid #7a7;
+}
+
+#demo-table tbody td {
+  border:1px solid #7a7;
+}

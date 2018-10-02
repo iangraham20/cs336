@@ -1,0 +1,81 @@
+/* for standard displays */
+body {
+  background: #999;
+  font-family: "Times New Roman", Times, serif;
+}
+#main {
+  display: flex;
+  flex-flow: row;
+  min-height: 600px;
+}
+#main > nav {
+  background: #ccf;
+  flex: 1 6 20%;
+  font: Verdana, Courier;
+  font-size: 24px;
+  order: 1;
+  text-align: right;
+  border: 2px solid #000;
+  padding: 25px;
+}
+#main > article {
+  background: #dd8;
+  flex: 3 1 60%;
+  font: Times New Roman;
+  font-size: 24px;
+  order: 2;
+  border: 2px solid #000;
+  padding: 25px;
+}
+#main > aside {
+  background: #ccf;
+  flex: 1 6 20%;
+  font: Verdana, Courier;
+  font-style: oblique;
+  font-size: 24px;
+  order: 3;
+  border: 2px solid #000;
+  padding: 25px;
+}
+header {
+  background: #feb;
+  display: block;
+  font: Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 26.4px;
+  min-height: 100px;
+  border: 2px solid #000;
+  padding: 25px;
+}
+footer {
+  background: #feb;
+  display: block;
+  font: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  min-height: 100px;
+  border: 2px solid #000;
+  padding: 25px;
+}
+/* for mobile displays */
+@media all and (max-width: 640px) {
+  #main,
+  #page {
+    flex-direction: column;
+  }
+  #main > article,
+  nav,
+  aside {
+    order: 0;
+  }
+  #main > nav,
+  aside,
+  header,
+  footer {
+    min-height: 50px;
+    max-height: 100px;
+  }
+  #main > nav {
+    text-align: left;
+  }
+}
