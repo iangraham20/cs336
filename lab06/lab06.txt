@@ -1,0 +1,3 @@
+a. Identify the request methods that you can and can’t test using the two tools listed above. If a method cannot be testing using a particular tool, explain why this is the case. List the Curl commands you used successfully.
+
+b. What is the most appropriate HTTP response code for pages that aren’t defined by an Express route?
