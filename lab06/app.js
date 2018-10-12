@@ -1,43 +1,33 @@
-/*
- * This implements some HTTP method/code
+/* Ian Christensen
+ * CS336 - lab06
  */
 
 const express = require('express');
-const app = express();
-const http_status = require('http-status-codes');
 const bodyParser = require('body-parser');
-const HOST = "localhost";
-const PORT = 3000;
+const app = express();
+const port = 3000;
 
-app.use(express.static('public'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-var HttpStatus = require('http-status-codes');
+app.use(bodyParser.json());
+app.use('/', express.static(__dirname + '/public'));
 
-// app.all('/request', function(req, res) {
-// 	res.sendstatus(501);
-// });
+const writeResponseWithBody = (req, res, method) => {
+  res.status(200);
+  res.send(`Hello ${method} - ${JSON.stringify(req.body)}`);
+}
 
-app.get('/request', function(req, res) {
-    res.send("Hello, GET!");
-});
+const writeResponse = (req, res, method) => {
+  res.status(200);
+  res.send(`Hello ${method}`);
+}
 
-app.put('/request', function(req, res) {
-    res.send("Hello, PUT!");
-});
+app.get('/request', (req, res) => writeResponse(req, res, 'GET'))
+.post('/request', (req, res) => writeResponseWithBody(req, res, 'POST'))
+.put('/request', (req, res) => writeResponseWithBody(req, res, 'PUT'))
+.delete('/request', (req, res) => writeResponse(req, res, 'DELETE'))
+.head('/request', (req, res) => writeResponse(req, res, 'HEAD'))
+.all('/request', (req, res) => res.sendStatus(501));
 
-app.post('/request', function(req, res) {
-    res.send("Hello, POST!");
-});
+app.post('/forms', (req, res) => writeResponseWithBody(req, res, 'POST'));
 
-app.delete('/request', function(req, res) {
-    res.send("Hello, DELETE!");
-});
-
-app.head('/request', function(req, res) {
-    res.send("Hello, HEAD!");
-});
-
-app.listen(PORT, HOST, () => {
-    console.log("listening on " + HOST + ":" + PORT + "...");
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));

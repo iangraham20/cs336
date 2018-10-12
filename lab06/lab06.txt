@@ -1,3 +1,16 @@
+Exercise 6.1
 a. Identify the request methods that you can and can’t test using the two tools listed above. If a method cannot be testing using a particular tool, explain why this is the case. List the Curl commands you used successfully.
 
+Chrome can test GET and POST
+Curl can test the all of them
+
 b. What is the most appropriate HTTP response code for pages that aren’t defined by an Express route?
+
+HTTP 501
+
+Exercise 6.2
+a. What HTTP methods do forms support?
+
+POST and GET
+
+b. How is the form data being passed back to the server and what syntactic form does it take? Is the data modified in any way?
