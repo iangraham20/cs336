@@ -1,0 +1,47 @@
+ Exercise 8.2
+
+    Explain:
+        i. the component structure of the application. What makes the UI composable and why does this matter?
+
+        The UI is composable because it is broken down into four seperate parts (CommentBox, CommentList, Comment, CommentForm) 
+        that can all run independently and the user's interactions all act as independent or stateless transactions. 
+        This is important because it increases the modularity and maintainability of the application. 
+        Generally speaking, composable applications are viewed as more trustworthy and the contents as more easily evaluated.
+
+        ii. what JSX does.
+        
+        JSX makes it possible to create DOM like tree structures or simply HTML elements in the same file as the JavaScript.
+
+        iii. why ReactJS is safe with respect to XSS.
+        
+        ReactJS is safe with respect to XSS because React is not generating HTML strings, which means that XSS protection is the default.
+
+        iv. how the data flows through the components. How are comments loaded? created? saved.
+        
+        The data flow in React is unidirectional or one-way directional, meaning everything flows downward through the components.
+        Each parent is responsible for its child's functions and data. Comments are loaded in the commentBox and passed down to the commentList.
+        Each comment is then passed into a comment component. Comments are created in the CommentForm component, and the data is sent to the server through a function in CommentBox.
+        Commnets are saved on the server.
+
+        v. the nature and purpose of props and state. Which is immutable and which is mutable and why does this distinction matter?
+
+        Props or properties are basically the immutable metadata of components, which is how data is passed down through the components. Props are only rendered once.
+        Interactions or changes are implemented through mutable states that are private to components and when they are altered they have to re-render the component.
+
+    Consider the following, more detailed questions based on statements in the tutorial.
+        i. Try editing the comments.json file (to add or remove a legal comment). What happens and why?
+        
+        If a comment is removed it is no longer visible on the webpage after the page is updated/re-rendered.
+
+        ii. When the CommentBox has loaded comments from the server (in loadCommentsFromServer()), why doesn’t it call render() to make them visible?
+        
+        Because CommentBox is not responsible for rendering the comments. Its job is to pass data to CommentList.
+
+        iii. Of what advantage, if any, is it to require that components always represent the current state of the view?
+        
+        If the component did not reperesent the current state of the view it would be confusing for the user and messy for the programmer. When it reperesents the current state it avoids ambiguity.
+
+        iv. The app implements optimistic updates. Isn’t optimism here more like foolishness? What if the server rejects the new comment (for whatever reason)?
+
+        The optimistic updates improve user experience by increasing speed.
+        On the rare occasion that the server rejects a new comment there would be a small error and the user would have to resubmit their comment.

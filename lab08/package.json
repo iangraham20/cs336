@@ -1,0 +1,15 @@
+{
+  "name": "lab08",
+  "version": "1.0.0",
+  "description": "This sample code supports Calvin College [CS 336](https://cs.calvin.edu/courses/cs/336/kvlinden) [Unit 8: React](https://cs.calvin.edu/courses/cs/336/kvlinden/08react/index.html).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Ian Christensen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
