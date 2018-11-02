@@ -1,0 +1,6 @@
+1. Project Proposal (5%) — This is a half-page vision statement for your project, which can refer to one of the suggested projects above. Submit this as a simple text file (*.txt) in Moodle under “Proposal”. Indicate if there is someone you’d like (or not like) to work with.
+
+I would like to work on the Museum Holdings proposal. The basic idea, which is outlined on the Computer Science projects page, is essentially that a museum visitor would be able to use QR codes to look up relevant information related to whatever historical object is on display. Generic information that would be applicable to nearly all objects would include things like the age, the origin, the manufacturer, a description, the object's purpose and a summary of the historical significance. Another piece of information that would be stored in each object would be related objects within the museum and how that piece has benefitted or damaged society. The basic html could be done as a simple form that user's input the name of an object and receive the relevent information below the form. 
+
+I would like to work with Matthew Nycamp, Matthew Getz, or Kelly Oh
+I would like to avoid working with Andrew Fulling, Benjamin Fynan, or Daniel Garcia
