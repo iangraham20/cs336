@@ -1,35 +1,28 @@
 What good has this bundling done? How big is the new bundle file? Check the Chrome DevTools network log to see what files are being loaded.
-	- Bundling reduces the total requests made to the server, and therefore less data. It also greatly reduces the total size. (I ran 
-	both of the lab08 and lab09 at the same time) The total data for lab09 is 14kb, at 28 ssecs , and 21 kb at 28 sec for lab08.
 
+The bundle reduces the number of requests and amount of data sent to the server, which decreases the size of the application. The total data for lab09 is 14kb, at 28 ssecs , and 21 kb at 28 sec for lab08.
+	
 What role did Babel play in the bundling?
-	- Babel can transpose code that is formatted in one type of Javascript (ES6) into older forms of JS code that build faster 
-	and more efficently, and that is ultimately better supported by more broswers. 
+
+Babel transposes code from newer versions into older versions that build faster and are more often supported by browsers.
 
 Can you just load file:///path…/index.html using the browser? Why or why not?
-	- Only two things show up. 1) The Big header COMMENTS, and the form to enter data, however, when you enter data 
-		nothing happens. The reason for this, is it needs a server to POST, and GET data from, when you just look
-		at the HTML, then you simply render the HTML Page, with no server data or server acess. It becomes a 
-		static webpage, that does not change....
 
+The header COMMENTS and the form appear, but when data is entered nothing happens. This is because it is a static webpage operationg without a server.
 
 In webpack.config.js, what does the loader test entry test: /\.jsx?$/ do?
-	- The loader test entry, load the babel config file (.babelrc) and exclude node_modules.
 
-
+This loads the babel config file (.babelrc) and excludes node_modules.
 
 Check out the new dist/index.html and dist/bundle.js. How are they different from the previous versions?
-	- The new index.html and bundle.js are in es2015, which is an older and more supported via better optimization
-	 	in broswers. The code we wrote last week, was in a newer (then es2015) code, but is less supported, but shorter. 
 
+The new index.html and bundle.js are in es2015, which is an older and more supported via better optimization in broswers. The code we wrote last week, was in a newer (then es2015) code, but is less supported, but shorter. 
 
 What good is it to replace the CDN library loads with module imports?
-	- It will allow the code to load faster, because it knows exactly what libraries/imports  it needs to use
-		and which it doesnt need.
-
+It will allow the code to load faster, because it knows exactly what libraries/imports  it needs to use and which it doesnt need.
 
 Check the network log. How many of the new modules you built are being loaded? How about the CSS file?
-	- Only 1. Bundle.js , the css file is being loaded as well. 
+Only 1. Bundle.js , the css file is being loaded as well. 
 
 
 Try out both ports and explain the difference between them.
@@ -42,9 +35,9 @@ Try out both ports and explain the difference between them.
 
 
 Is it worth all this trouble to build a development configuration?
-		- It depends, if you are going to have a static webpage, where little will change, and (like a wikipedia article)
-		Then to build a page like this is pointless. But since most pages nowadays, are not static, it is worth the effort
-		of trying to make the page a SPA, and optimize it by using Babel w/ webpack to bundle files and optimize them for the 
-		modern day interent. This is becuase nowadays, most pages are interactive, and have data being sent back and forth between
-		server and client, so it is more efficent to use a older form of JS that is more compatiable with broswer/ more optimized 
-		with broswers.
+It depends, if you are going to have a static webpage, where little will change, and (like a wikipedia article)
+Then to build a page like this is pointless. But since most pages nowadays, are not static, it is worth the effort
+of trying to make the page a SPA, and optimize it by using Babel w/ webpack to bundle files and optimize them for the 
+modern day interent. This is becuase nowadays, most pages are interactive, and have data being sent back and forth between
+server and client, so it is more efficent to use a older form of JS that is more compatiable with broswer/ more optimized 
+with broswers.
