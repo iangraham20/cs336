@@ -1,0 +1,15 @@
+{
+  "name": "lab04",
+  "version": "1.0.0",
+  "description": "lab 4 of CS336",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Ian Christensen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

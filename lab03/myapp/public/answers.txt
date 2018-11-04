@@ -1,8 +1,0 @@
-a. Compare and contrast the purposes of Node.js and of Express.js.
-	Node.js is a platform for building server-side event-driven i/o application using javascript.
-	Express.js is a framework based on node.js for building web-application using principles and approaches of node.js
-
-	Node is javascript environment with libraries, whereas Express extends Node to make webservers easier to write
-
-b. Explain the purpose of the package.json file.
-	package.json contains a map construct that holds the properties information neccessary for the app making it easier to understand what the app is

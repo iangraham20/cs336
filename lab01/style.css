@@ -1,0 +1,42 @@
+/*TODO: detemine the formatting priority*/
+
+/*selector for all elements*/
+* {
+
+}
+
+/*Element selection*/
+head {
+
+}
+
+body {
+
+}
+
+div {
+
+}
+
+/*ID selection*/
+#orderedList {
+
+}
+
+/*multiple elements, IDs, or classes can be selected at the same time*/
+#descriptionList, #unorderedList {
+
+}
+
+#table {
+	border: 1px solid black;
+}
+
+/*Class selection*/
+.blockElements {
+
+}
+
+.inlineElements {
+
+}

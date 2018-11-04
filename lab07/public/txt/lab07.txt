@@ -1,0 +1,9 @@
+Exercise 7.1
+	a. What is the use of JavaScript anonymous functions in the context of jQuery?
+
+
+	b. What is the importance of waiting for the ready event?
+
+
+Exercise 7.2
+

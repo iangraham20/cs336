@@ -1,25 +1,13 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-	<style> a.test { font-weight: bold; } </style>
     <meta charset="utf-8">
-    <title>Demo</title>
+    <title>Lab 7 - JQuery</title>
 </head>
 <body>
+	<h1>Lab 7 - JQuery</h1>
     <a href="http://jquery.com/">jQuery</a>
-    <script src="script-javascript.js"></script>
-    <script>
-	$("a").addClass("test");
-	$(document).ready(function() {
-		$("a").click(function(event) {
-			alert("The link will no longer take you to jquery.com");
-			event.preventDefault();
-			$("a").click(function(event) {
-			event.preventDefault();
-			$(this).hide("slow");
-			});
-		});
-	});
-    </script>
+    <script src="/scripts/jquery.js"></script>
+    <script src="/scripts/jqueryScript.js"></script>
 </body>
 </html>

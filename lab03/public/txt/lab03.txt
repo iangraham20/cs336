@@ -1,0 +1,19 @@
+Exercise 3.1
+	a. Compare and contrast the purposes of Node.js and of Express.js.
+    
+	Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser. Node.js lets developers use JavaScript to write Command Line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. 
+
+	Express.js, or simply Express, is a web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js.
+
+    b. Explain the purpose of the package.json file.
+
+	The package.json file holds various metadata relevant to the project. This file is used to give information to npm that allows it to identify the project as well as handle the project's dependencies. It can also contain other metadata such as a project description, the version of the project in a particular distribution, license information, even configuration data - all of which can be vital to both npm and to the end users of the package.
+
+Exercise 3.2
+	a. Explain the sense in which these files are “static”.
+
+	The files are static in the sense that they are preloaded to the server and the page has to be refreshed to add changes.
+
+	b. Indicate whether the server continues to serve up the hello-world message and explain why this is the case.
+
+	The server does keep the hello-world message assuming assuming the correct route is specified in the URL.

@@ -1,0 +1,27 @@
+h1 {
+	font-size: 25px;
+	font-style: bold;
+}
+
+h2 {
+	font-size: 16px;
+	font-style: italic;
+}
+
+body {
+	font-size: 14px;
+	font-style: oblique;
+}
+
+img {
+	width: 750px;
+	height: 250px;
+}
+
+#disc {
+	list-style-type: disc;
+}
+
+#circle {
+	list-style-type: circle;
+}

@@ -1,0 +1,135 @@
+<!--
+doc.html is an example document that demonstrates the functionality of various elements in html
+
+Ian Christensen
+Prof. Vander Linden
+CS-336-A, Calvin College
+Fall, 2018
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <title>Lab 1 - Hello World</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- <script src="script.js"></script> -->
+  </head>
+  <body>
+<!--     Divisions or sections are used as a container for html tags whereas p is used specifically for paragraphs of text -->
+    <div id="division1" class="blockElements">
+      <h1 id="header1">Header 1</h1>
+      <h2 id="header2">Header 2</h2>
+      <h3 id="header3">Header 3</h3>
+      <h4 id="header4">Header 4</h4>
+      <h5 id="header5">Header 5</h5>
+      <h6 id="header6">Header 6</h6>
+
+      <ol id="orderedList">
+        Ordered List:
+        <li id="listItem1">list item 1</li>
+        <li id="listItem2">list item 2</li>
+        <li id="listItem3">list item 3</li>
+      </ol>
+
+      <ul id="unorderedList">
+        Unordered List:
+        <li id="listItem1">list item 1</li>
+        <li id="listItem2">list item 2</li>
+        <li id="listItem3">list item 3</li>
+      </ul>
+
+      <dl id="descriptionList">
+        Description List:
+        <dt id="term1">term 1:</dt>
+        <dd id="description1">description 1</dd>
+        <dt id="term2">term 2:</dt>
+        <dd id="description2">description 2</dd>
+        <dt id="term3">term 3:</dt>
+        <dd id="description3">description 3</dd>
+      </dl>
+
+      <hr id="horizontalRule">
+      Horizontal rule tags define thematic breaks in document contents.
+
+      <p id="paragraph">
+        The p tag defines a paragraph. Browsers automatically add some space (margin) before and after each p element. The margins can be modified with CSS (with the margin properties).
+      </p>
+
+      <pre id="preFormattedText">
+        Text in a pre element
+        is displayed in a fixed-width
+        font (usually Courier), and it 
+        preserves both      spaces and
+        line breaks
+      </pre>
+
+      <blockquote id="quotationBlock" cite="https://www.w3schools.com/tags/tag_blockquote.asp">
+        The blockquote tag specifies a section that is quoted from another source. Browsers usually indent blockquote elements.
+      </blockquote>
+
+     <form id="dataGroup">
+      <fieldset id="formOutline">
+        <legend id="formHeader">Legend (form header):</legend>
+        Name: <input id="nameInput" type="text" placeholder="input placeholder attribute"><br>
+        Email: <input id="emailInput" type="text" placeholder="input placeholder attribute"><br>
+        Date of birth: <input id="dobInput" type="text" placeholder="input placeholder attribute">
+      </fieldset>
+    </form>
+
+    <script id="clientsideScript">
+      document.write("The script tag is used to define a client-side script (JavaScript). The script element either contains scripting statements, or it points to an external script file through the src attribute. Common uses for JavaScript are image manipulation, form validation, and dynamic changes of content.")
+    </script>
+
+    <noscript id="alternateNoScript">
+      The noscript tag defines an alternate content for users that have disabled scripts in their browser or have a browser that doesn't support script.
+    </noscript>
+
+    <table id="table">
+      <tr id="tableRow1">
+        <th id="tableHeader1">header 1</th>
+        <th id="tableHeader2">header 2</th>
+      </tr>
+      <tr id="tableRow2">
+        <td id="tableData1">cell 1</td>
+        <td id="tableData2">cell 2</td>
+      </tr>
+    </table> 
+    </div>
+
+    <div id="division2" class="inlineElements">
+
+      <br id="breakLine1">
+      <b id="bold">Bold Text</b>
+
+      <br id="breakLine2">
+      <i id="italic">Italic Text</i>
+
+      <br id="breakLine3">
+      <u id="underlined">Underlined Text</u>
+
+
+      <br id="breakLine4">
+      <code id="code">
+        The code element is used to define enclosed text as computer code. It is often paired with the pre element to preserve line breaks and indentation when presenting blocks of computer code.
+      </code>
+
+      <br id="breakLine5">
+      <samp id="sample">
+        The samp element is used to identify text that should be interpreted as sample output from a computer program. By default, browser render samp element contents in a monospace font.
+      </samp>
+
+      <br id="breakLine6">
+      <em id="emphasis">
+        The em element is used to indicate text that should receive greater emphasis than the surrounding text.
+      </em>
+
+
+      <br id="breakLine7">
+      <a id="anchor" href="https://cs.calvin.edu/courses/cs/336/kvlinden/01introduction/lab.html">
+        The a element, or anchor element, it used to create a hyperlink to another webpage or another location within the same webpage. The hyperlink created by an anchor element is applied to the text, image, or other HTML content nested between the opening and closing a tags.
+      </a>
+
+    </div>
+  </body>
+</html>
