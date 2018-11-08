@@ -1,22 +1,39 @@
-/* server.js
+/* app.js implements the server for lab 8
  *
- * Author: Ian Graham Christensen
- * Professor: Keith Vander Linden
- * Class: CS336 at Calvin College
- * Date Made: Fall Semester, 2018
+ * Ian Christensen
+ * Prof. Vander Linden
+ * CS-336-A, Calvin College
+ * Fall, 2018
  */
 
-var fs = require('fs');
-var path = require('path');
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var COMMENTS_FILE = path.join(__dirname, 'comments.json');
+// enfore strict syntactical rules
+"use_strict";
 
-app.set('port', (process.env.PORT || 3000));
+// import and instantiate an express application
+const express = require('express');
+const app = express();
+
+// specify a host name and port number
+const host = "localhost";
+const port = 3000;
+
+// require http status codes and the json bodyParser
+const httpStatus = require('http-status-codes');
+const bodyParser = require('body-parser');
+
+// create a static folder and notify the user that the application is running
 app.use('/', express.static(path.join(__dirname, 'public')));
+app.set('port', (process.env.port || 3000));
+
+//
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+//
+var fs = require('fs');
+var path = require('path');
+var COMMENTS_FILE = path.join(__dirname, 'comments.json');
+
 
 // Additional middleware which will set headers that we need on each request.
 app.use(function(req, res, next) {

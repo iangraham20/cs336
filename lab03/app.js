@@ -20,8 +20,6 @@ const port = 3001; // changed the port number
 
 app.get('/', (req, res) => res.send('Hello, world!')); // added punctuation
 
-app.listen(port, () => console.log(`app.js is listening on port ${port}!`));
-
 /* exercise 3.2 */
 
 app.get('/answers', (req, res) => res.sendFile(__dirname + '/public/txt/lab03.txt'));
@@ -43,3 +41,5 @@ app.get('/answers', (req, res) => res.sendFile(__dirname + '/public/txt/lab03.tx
 // If you run the express app from another directory, it’s safer to 
 // use the absolute path of the directory that you want to serve
 app.use(express.static(__dirname + '/public'));
+
+app.listen(port, () => console.log(`app.js is listening on port ${port}!`));

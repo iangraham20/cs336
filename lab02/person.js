@@ -109,7 +109,6 @@ Person.prototype.getGreeting = function() {
  	this.name = newName;
  }
 
-
 /* Function: mutator for a person object's birthday attribute
  * Precond: the person object has a birthday attribute
  * Postcond: a message has been displayed in the console

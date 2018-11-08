@@ -19,8 +19,8 @@ const port = 3000;
 // Open the html file directly
 app.get('/', (req, res) => res.sendFile(__dirname + '/public/doc.html'));
 
-// Notification that the server is running and on what port
-app.listen(port, () => console.log(`app.js is listening on port ${port}!`));
-
 // Specify the absolute path for the static files
 app.use(express.static(__dirname + '/public'));
+
+// Notification that the server is running and on what port
+app.listen(port, () => console.log(`app.js is listening on port ${port}!`));
