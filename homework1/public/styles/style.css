@@ -6,3 +6,16 @@ Prof. Vander Linden
 CS-336-A, for Calvin College
 Fall, 2018
 */
+
+h1 {
+	font-size: 32px;
+	font-style: bold;
+}
+
+u {
+	font-size: 18px;
+}
+
+em {
+	font-size: 12px;
+}

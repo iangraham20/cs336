@@ -18,7 +18,7 @@ const host = "localhost";
 const port = 3000;
 
 // Specify the absolute path for the static files
-app.use(express.static(__dirname + '/assets'));
+app.use(express.static(__dirname + '/public'));
 
 // create a json data structure containing people
 const people = [
@@ -74,7 +74,7 @@ const findPerson = (req, id) => {
 	return person;
 }
 
-app.get('/', (req, res) => { res.sendFile(__dirname + '/assets/documents/doc.html'); });
+app.get('/', (req, res) => { res.sendFile(__dirname + '/public/documents/doc.html'); });
 
 // respond to '/people' by sending the json data in people
 app.get('/people', (req, res) => res.json(people));
