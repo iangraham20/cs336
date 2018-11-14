@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 module.exports = {
     entry: [
         __dirname + '/app/scripts/index.js'
@@ -30,12 +29,4 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin("[name]-[hash].css")
     ]
-    devServer: {
-        port: 3001,
-        proxy: { '/api/*': 'http://localhost:3000' },
-        colors: true,
-        historyApiFallback: true,
-        inline: true,
-        hot: true
-    }
 };
