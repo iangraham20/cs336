@@ -6,19 +6,43 @@
  * Date: Fall, 2018
  */
 
-// import and create an express app on port 3000
+// enforce strict syntax rules
+"use_strict";
+
+// import and instantiate an express server with a specified host and port
 const express = require('express');
 const app = express();
+const host = "localhost";
 const port = 3000;
 
-// middleware that extracts the request data
+// use a body parser for json encoded url data and specify the static folder
 const bodyParser = require('body-parser');
-// set the bodyparser to parse the text as URL encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
-// set the bodyparser to parse json encoded data
 app.use(bodyParser.json());
-// set the default directory and make it static
 app.use('/', express.static(__dirname + '/public'));
+
+// container full of people objects
+const people = [
+{	firstName: 'George',
+    lastName: 'Harrison',
+    loginId: 'gh12',
+    startDate: '03/15/1992', },
+
+{	firstName: 'Paul',
+    lastName: 'McCartney',
+    loginId: 'jpm84',
+    startDate: '08/01/1998', },
+
+{	firstName: 'John',
+    lastName: 'Lennon',
+    loginId: 'jwl59',
+    startDate: '11/34/1990', },
+
+{	firstName: 'Richard',
+    lastName: 'Starkey',
+    loginId: 'rs03',
+    startDate: '02/23/1995', }
+];
 
 /* getYear: calculates the number of years since a specified date
  * Precondition: startDate must be a valid timestamp
@@ -37,18 +61,6 @@ const getYear = (startDate) => {
     return year;
 }
 
-/* getName: concatenates a first and last name
- * Precondition: firstName and lastName must be valid strings
- * Postcondition: fullname is printed to the console
- * Inputs: person object
- * Outputs: fullName, a string
- */
-const getName = function() {
-    var fullName = this.firstName + " " + this.lastName;
-    console.log(fullName);
-    return fullName;
-}
-
 /* findPerson: retrieves a person object given an ID number
  * Precondition: id must be a valid number
  * Postcondition: status 404 is sent on fail
@@ -56,51 +68,17 @@ const getName = function() {
  * Outputs: person object
  */
 const findPerson = (res, id) => {
-	const person = people.find(person => person.loginId === id);
-	if (person === undefined) {
-        // loginID doesn’t exist or the required data is missing or incomplete
-		res.sendStatus(404);
-	}
-	return person;
+    const person = people.find(person => person.loginId === id);
+    if (person === undefined) {
+        res.sendStatus(404);
+    }
+    return person;
 }
 
-// container full of people objects
-const people = [
-{	firstName: 'George',
-    lastName: 'Harrison',
-    loginId: 'Gharrison12',
-    startDate: '03/15/1992', },
-
-{	firstName: 'Paul',
-    lastName: 'McCartney',
-    loginId: 'Pmccartney84',
-    startDate: '08/01/1998', },
-
-{	firstName: 'John',
-    lastName: 'Lennon',
-    loginId: 'Jlennon59',
-    startDate: '11/34/1990', },
-
-{	firstName: 'Ringo',
-    lastName: 'Starr',
-    loginId: 'Rstarr03',
-    startDate: '02/23/1995', }
-];
-
-/* get: retrieves the submission page
- * Precondition: addPerson.html must exist
- * Postcondition: addPerson.html is displayed
- * Inputs: req, a request && res, a response
- * Outputs: N/A
- */
+// respond to '/' by sending the addPerson file
 app.get('/', (req, res) => res.sendFile(__dirname + '/public/addPerson.html'));
 
-/* get people: retrieves a list of people objects
- * Precondition: loginId numbers must be unique
- * Postcondition: a list of people objects is displayed
- * Inputs: req, a request && res, a response
- * Outputs: nothing
- */
+// respond to '/people' by sending the json data in people
 app.get('/people', (req, res) => res.json(people))
     .post('/people', (req, res) => {
     for (let person of people) {
@@ -113,12 +91,7 @@ app.get('/people', (req, res) => res.json(people))
     res.sendStatus(200);
 });
 
-/* get id: retrieves the record of the person with the given id
- * Precondition: id must be a valid string
- * Postcondition: the person object is displayed
- * Inputs: req, a request && res, a response
- * Outputs: N/A
- */
+// respond to '/person/:id' by sending the person's attributes
 app.get('/person/:id', (req, res) => {
   const person = findPerson(res, req.params.id);
   if (person !== undefined) {
@@ -126,12 +99,19 @@ app.get('/person/:id', (req, res) => {
   }
 });
 
-/* get name: retrieves the fullname of the person with the given id
- * Precondition: id must be a valid string
- * Postcondition: the person's fullname is displayed
- * Inputs: req, a request && res, a response
- * Outputs: N/A
- */
+
+app.delete('/person/:id', function(req, res) {
+for(var i = 0; i < people.length; i++) {
+    //console.log(peopleList[i].id);
+    if (people[i].id == req.params.id) {
+      delete people[i];
+      res.send("Deleted the Person with ID=" + req.params.id);
+    }
+  }
+  res.send( "404 Not found");
+});
+
+// respond to '/person/:id/name' by sending the person's full name
 app.get('/person/:id/name', (req, res) => {
 	const person = findPerson(req, req.params.id);
 	if (person !== undefined) {
@@ -139,13 +119,8 @@ app.get('/person/:id/name', (req, res) => {
 	}
 });
 
-/* get year: retrieves the seniority of the person with the given id
- * Precondition: id must be a valid string
- * Postcondition: the person's seniority is displayed
- * Inputs: req, a request && res, a response
- * Outputs: N/A
- */
-app.get('/person/:id/years', (req, res) => {
+// respond to '/person/:id/year' by sending the person's seniority
+app.get('/person/:id/year', (req, res) => {
 	const person = findPerson(res, req.params.id);
 	if (person !== undefined) {
 		res.json(getYear(person.startDate));

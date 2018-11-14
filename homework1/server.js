@@ -24,22 +24,22 @@ app.use(express.static(__dirname + '/public'));
 const people = [
 {   firstName: 'George',
     lastName: 'Harrison',
-    loginID: 'Gharrison12',
+    loginId: 'gh12',
     startDate: '03/15/1992', },
 
 {   firstName: 'Paul',
     lastName: 'McCartney',
-    loginID: 'Pmccartney84',
+    loginId: 'jpm84',
     startDate: '08/01/1998', },
 
 {   firstName: 'John',
     lastName: 'Lennon',
-    loginID: 'Jlennon59',
+    loginId: 'jwl59',
     startDate: '11/34/1990', },
 
-{   firstName: 'Ringo',
-    lastName: 'Starr',
-    loginID: 'Rstarr03',
+{   firstName: 'Richard',
+    lastName: 'Starkey',
+    loginId: 'rs03',
     startDate: '02/23/1995', }
 ];
 
