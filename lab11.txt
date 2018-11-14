@@ -1,0 +1,8 @@
+
+a. Compare and contrast your development and production deployments and explain how each is designed.
+
+I don't see any difference and basically the lab had me copy and paste random crap that doesn't mean anything to me so there is nothing to compare or contrast and I wasn't really given the correct information to explain the design other than to say if it's a production deployment it probably shouldn't be local anymore except I still have to search "localhost:3000".
+
+b. List the optimizations you’ve configured for this production version and, if possible, find evidence of then in the deployed application files.
+
+I don't see any optimizations of any kind.
