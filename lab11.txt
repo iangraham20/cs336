@@ -1,3 +1,4 @@
+11.1
 
 a. Compare and contrast your development and production deployments and explain how each is designed.
 
@@ -6,3 +7,13 @@ I don't see any difference and basically the lab had me copy and paste random cr
 b. List the optimizations you’ve configured for this production version and, if possible, find evidence of then in the deployed application files.
 
 I don't see any optimizations of any kind.
+
+11.2
+    
+a. What advantage is there is deploying an application to a PaaS tool like Heroku?
+
+The application is no longer running locally and will be automatically updated. The workload is not being handled by my laptop anymore.
+
+b. How does Heroku know how to install and run your application (after pulling it from the specified branch on GitHub)?
+
+Heroku uses the package.json file's scripts to build and run the program.
