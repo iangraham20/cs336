@@ -1,4 +1,4 @@
-/* server.js implements the server for lab 10
+/* server.js implements the server for lab 11
  *
  * Ian Christensen
  * Prof. Vander Linden

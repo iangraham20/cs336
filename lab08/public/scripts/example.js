@@ -25,14 +25,12 @@ const CommentForm = React.createClass({
           type="text"
           placeholder="Your name"
           value={this.state.author}
-          onChange={this.handleAuthorChange}
-        />
+          onChange={this.handleAuthorChange} />
         <input
           type="text"
           placeholder="Say something..."
           value={this.state.text}
-          onChange={this.handleTextChange}
-        />
+          onChange={this.handleTextChange} />
         <input type="submit" value="Post" />
       </form>
     );

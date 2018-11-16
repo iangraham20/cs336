@@ -104,6 +104,17 @@ app.get('/person/:id', (req, res) => {
             res.json(data);
         }
     })
+}).delete('/person/:id', (req, res) => {
+    db.collection('people').deleteOne({
+        "loginID": req.params.id,
+    }, function(err, data) {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        } else {
+            res.sendStatus(404);
+        }
+    })
 });
 
 // respond to '/person/:id/name' by sending the person's full name

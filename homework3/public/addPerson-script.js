@@ -6,7 +6,34 @@
  * Date: Fall, 2018
  */
 
+function loadPeople() {
+  let peopleList = $("#people-list");
+  peopleList.empty();
+  $.ajax({
+      type: "GET",
+      url: "/people",
+  })
+  .done(function(res) {
+    for (person of res) {
+      peopleList.append(`
+          <div>
+              <h1>${person.firstName} ${person.lastName}</h1>
+              <div>Login ID: ${person.loginId}</div>
+              <div>Start Date: ${person.startDate}</div>
+          </div>`
+      );
+    }
+  })
+  .fail(function(xhr, status, error) {
+    console.log("Error: " + error);
+    console.log("Status: " + status);
+    console.dir(xhr);
+  });
+}
+
 $(document).ready(function() {
+ 	loadPeople();
+
 	// make variables based on the html
 	let form = $("form");
 	let result = $("#status");
@@ -14,7 +41,7 @@ $(document).ready(function() {
 	// if the input field has changed
 	form.change(function() {
 		// set result to empty string
-		result = "";
+		result.text("");
 	}
 
 	// if the form has been submitted
@@ -32,6 +59,7 @@ $(document).ready(function() {
 		.done(function(res) {
 			result.text("Success");
 			form.trigger("reset");
+			loadPeople();
 		})
 		// send necessary error codes
 		.fail(function(xhr, status, error) {

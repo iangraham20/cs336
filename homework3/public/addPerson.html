@@ -6,7 +6,6 @@ Prof: Vander Linden
 Class: CS336 at Calvin College
 Date: Fall, 2018
 -->
-
 <!doctype html>
 <html>
   <head>
@@ -17,9 +16,12 @@ Date: Fall, 2018
     <title>Add Person</title>
   </head>
   <body>
+    <div id="link">
     <a href="/getPerson.html">Get Person</a>
-    <br><br>
+    </div>
     <form action="/people" method="post">
+      <fieldset>
+      <legend>Add a new employee:</legend>
       <div>
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="firstName">
@@ -40,6 +42,9 @@ Date: Fall, 2018
         <button type="submit">Add Person</button>
         <span id="status"></span>
       </div>
+      </fieldset>
     </form>
+    <div id="people-list">
+    </div>
   </body>
 </html>

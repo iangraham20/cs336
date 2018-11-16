@@ -21,6 +21,11 @@ const port = 3000;
 const httpStatus = require('http-status-codes');
 const bodyParser = require('body-parser');
 
+//
+var fs = require('fs');
+var path = require('path');
+var COMMENTS_FILE = path.join(__dirname, 'comments.json');
+
 // create a static folder and notify the user that the application is running
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.set('port', (process.env.port || 3000));
@@ -28,12 +33,6 @@ app.set('port', (process.env.port || 3000));
 //
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-//
-var fs = require('fs');
-var path = require('path');
-var COMMENTS_FILE = path.join(__dirname, 'comments.json');
-
 
 // Additional middleware which will set headers that we need on each request.
 app.use(function(req, res, next) {

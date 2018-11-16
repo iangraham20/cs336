@@ -1,10 +1,16 @@
+/* server.js implements the server for lab 9
+ *
+ * Ian Christensen
+ * Prof. Vander Linden
+ * CS-336-A, Calvin College
+ * Fall, 2018
+ */
+
 var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-
-
 
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 

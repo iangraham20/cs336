@@ -1,11 +1,20 @@
 Command for installing status codes:
 npm install http-status-codes --save
 
-https://cs.calvin.edu/courses/cs/336/kvlinden/06http/lab.html
-http://expressjs.com/en/starter/basic-routing.html
-http://expressjs.com/en/guide/routing.html
-http://expressjs.com/en/4x/api.html#app.METHOD
-https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
-https://www.npmjs.com/package/http-status-codes
-https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
-https://www.npmjs.com/package/body-parser
+
+curl commands:
+    curl [--head] URL
+        GET the specified URL; the head option gets only the header. 
+    curl -X method URL -d data -H 'Content-Type: application/json'
+        Send the specified HTTP method/data to the specified URL. Here, the data is declared to be in JSON format, e.g., '{"arg":"value"}'.
+        You can use the NPM body-parser to parse JSON data on the server side; see the sample code for an example of how to do this. 
+
+GET: curl http://localhost:3000/request
+HEAD: curl --head http://localhost:3000/request
+
+GET: curl -X GET http://localhost:3000/request -d data -H 'Content-Type: application'
+PUT:
+POST:
+DELETE:
+
+https://gist.github.com/subfuzion/08c5d85437d5d4f00e58

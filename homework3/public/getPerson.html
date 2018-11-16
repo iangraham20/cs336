@@ -17,17 +17,23 @@ Date: Fall, 2018
     <title>Get Person</title>
   </head>
   <body>
+    <div>
     <a href="/addPerson.html">Add Person</a>
-    <br><br>
+    </div>
+    <div>
     <form action="/person" method="get">
+      <fieldset>
+      <legend>Get an employee's information:</legend>
       <div>
         <label for="login_id">Login ID:</label>
-        <input id="login_id" name="loginId"></input>
+        <input id="login_id" name="loginId" placeholder="i.e. jd2"></input>
       </div>
       <div class="button">
         <button type="submit">Get Person</button>
       </div>
+      </fieldset>
     </form>
+    </div>
     <div id="result"></div>
   </body>
 </html>
