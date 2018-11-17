@@ -1,3 +1,10 @@
 1. Project Proposal (5%) — This is a half-page vision statement for your project, which can refer to one of the suggested projects above. Submit this as a simple text file (*.txt) in Moodle under “Proposal”. Indicate if there is someone you’d like (or not like) to work with.
 
+Ian Christensen:
 I would like to work on the Museum Holdings proposal. The basic idea, which is outlined on the Computer Science projects page, is essentially that a museum visitor would be able to use QR codes to look up relevant information related to whatever historical object is on display. Generic information that would be applicable to nearly all objects would include things like the age, the origin, the manufacturer, a description, the object's purpose and a summary of the historical significance. Another piece of information that would be stored in each object would be related objects within the museum and how that piece has benefitted or damaged society. The basic html could be done as a simple form that user's input the name of an object and receive the relevent information below the form. 
+
+Derek Fisher:
+For my final project I am interested in working on the Museum Holdings project. From the description: "Professor VanAntwerp’s father works with the Pine River Area Historical Society and with their museum in Tustin, Michigan. They would like a catalog of holdings. Visitors to the museum could point to a QR code and get a short explanation of the object, its significance, links to other similar objects in the museum, and (perhaps) external links/documentation." I am interested in deploying this type of application and would like to work on a real-world project.
+
+Cameron Dewey:
+For a project I would like to work on the museum holdings project proposal. Museum Holdings — Professor VanAntwerp’s father works with the Pine River Area Historical Society and with their museum in Tustin, Michigan. They would like a catalog of holdings. Visitors to the museum could point to a QR code and get a short explanation of the object, its significance, links to other similar objects in the museum, and (perhaps) external links/documentation.
