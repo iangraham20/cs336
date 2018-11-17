@@ -32,7 +32,7 @@ function loadPeople() {
 }
 
 $(document).ready(function() {
- 	loadPeople();
+ 	// loadPeople();
 
 	// make variables based on the html
 	let form = $("form");

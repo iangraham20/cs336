@@ -63,7 +63,7 @@ const findPerson = (res, id) => {
 }
 
 // respond to '/' by sending the addPerson file
-app.get('/', (req, res) => res.sendFile(__dirname + '/public/addPerson.html'));
+app.get('/', (req, res) => res.sendFile(__dirname + '/public/documents/addPerson.html'));
 
 // respond to '/people' by sending the json data in people
 app.get('/people', (req, res) => {
@@ -103,6 +103,19 @@ app.get('/person/:id', (req, res) => {
         } else {
             res.json(data);
         }
+    })
+}).put('/people', (req, res) => {
+    db.collection('people').replaceOne({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        loginId: req.body.loginId,
+        startDate: req.body.startDate,
+    }, function(err, data) {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        }
+        res.sendStatus(200);
     })
 }).delete('/person/:id', (req, res) => {
     db.collection('people').deleteOne({

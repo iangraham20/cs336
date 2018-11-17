@@ -1,5 +1,5 @@
 <!--
-getPerson.html is the retrieval webpage for homework2
+getPerson.html is the retrieval webpage for homework3
 
 Author: Ian Christensen
 Prof: Vander Linden
@@ -12,13 +12,13 @@ Date: Fall, 2018
   <head>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="getPerson_script.js"></script>
+    <script src="../scripts/getPerson.js"></script>
     <meta charset="utf-8">
     <title>Get Person</title>
   </head>
   <body>
     <div>
-    <a href="/addPerson.html">Add Person</a>
+    <a href="./addPerson.html">Add Person</a>
     </div>
     <div>
     <form action="/person" method="get">
@@ -28,7 +28,7 @@ Date: Fall, 2018
         <label for="login_id">Login ID:</label>
         <input id="login_id" name="loginId" placeholder="i.e. jd2"></input>
       </div>
-      <div class="button">
+      <div class="button"><br>
         <button type="submit">Get Person</button>
       </div>
       </fieldset>

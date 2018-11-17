@@ -1,23 +1,26 @@
 <!--
-addPerson.html is the submission webpage for homework2
+addPerson.html is the submission webpage for homework3
 
 Author: Ian Christensen
 Prof: Vander Linden
 Class: CS336 at Calvin College
 Date: Fall, 2018
 -->
+
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="addPerson-script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
+    <script src="../scripts/addPerson.js"></script>
     <meta charset="utf-8">
     <title>Add Person</title>
   </head>
   <body>
     <div id="link">
-    <a href="/getPerson.html">Get Person</a>
+    <a href="../documents/getPerson.html">Get Person</a>
     </div>
     <form action="/people" method="post">
       <fieldset>
@@ -44,7 +47,8 @@ Date: Fall, 2018
       </div>
       </fieldset>
     </form>
-    <div id="people-list">
+    <div id="content">
     </div>
+    <script type="text/babel" src="../scripts/index.js"></script>
   </body>
 </html>
