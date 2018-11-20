@@ -1,8 +1,15 @@
+/* 
+ *
+ * Authors: Ian Christensen, Derek Fisher, Cameron Dewey
+ * Professor: Keith Vander Linden
+ * Class: CS-336-A, Calvin College
+ * Semester: Fall, 2018
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import '../css/style.css';
-
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -21,12 +28,12 @@ module.exports = React.createClass({
     if (!text || !author) {
       return;
     }
-    this.props.onCommentSubmit({author: author, text: text});
+    this.props.onItemSubmit({author: author, text: text});
     this.setState({author: '', text: ''});
   },
   render: function() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
+      <form className="itemForm" onSubmit={this.handleSubmit}>
         <input
           type="text"
           placeholder="Your name"

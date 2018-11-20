@@ -36,21 +36,19 @@ app.use(function(req, res, next) {
     next();
 });
 
-// display the json data found in he comments collection
-app.get('/api/comments', function(req, res) {
-  db.collection('comments').find().toArray(function(err, data) {
+// display the json data found in the items collection
+app.get('/api/items', function(req, res) {
+  db.collection('items').find().toArray(function(err, data) {
     if (err) {
       console.error(err);
       process.exit(1);
     }
     res.json(data);
   });
-});
-
-// add a new comment to the collection
-app.post('/api/comments', function(req, res) {
+})
+.post('/api/items', function(req, res) {
   db.collection('comments').insertOne({
-    author: req.body.author,
+    item: req.body.item,
     text: req.body.text,
   }, function(err, data) {
     if (err) {

@@ -1,10 +1,17 @@
+/* 
+ *
+ * Authors: Ian Christensen, Derek Fisher, Cameron Dewey
+ * Professor: Keith Vander Linden
+ * Class: CS-336-A, Calvin College
+ * Semester: Fall, 2018
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../css/style.css';
-
-import CommentBox from './commentbox.js';
+import ItemBox from './itembox.js';
 
 ReactDOM.render(
-  <CommentBox url="/api/comments" pollInterval={2000} />,
+  <ItemBox url="/api/items" pollInterval={2000} />,
   document.getElementById('content')
 );
