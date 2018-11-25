@@ -58,10 +58,10 @@ const PersonList = React.createClass({
     const personNodes = this.props.data.map(function(person) {
       return (
         <Person firstName={person.firstName + " "} lastName={person.lastName} key={person.id}>
-          {"First Name: " + person.firstName}
-          {", Last Name: " + person.lastName}
-          {", ID number: " + person.id}
-          {", Start Date: " + person.startDate}
+          <div>{"First Name: " + person.firstName}</div>
+          <div>{"Last Name: " + person.lastName}</div>
+          <div>{"ID number: " + person.id}</div>
+          <div>{"Start Date: " + person.startDate}</div>
         </Person>
       );
     });
