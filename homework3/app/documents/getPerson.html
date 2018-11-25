@@ -10,23 +10,22 @@ Date: Fall, 2018
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="../scripts/getPerson.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
     <meta charset="utf-8">
     <title>Get Person</title>
   </head>
   <body>
     <div>
-    <a href="./addPerson.html">Add Person</a>
+    <a href="../documents/addPerson.html">Add Person</a> <br>
+    <a href="../../">List of People</a>
     </div>
     <div>
     <form action="/person" method="get">
       <fieldset>
       <legend>Get an employee's information:</legend>
       <div>
-        <label for="login_id">Login ID:</label>
-        <input id="login_id" name="loginId" placeholder="i.e. jd2"></input>
+        <label for="id">Login ID:</label>
+        <input id="id" name="id" placeholder="i.e. 123"></input>
       </div>
       <div class="button"><br>
         <button type="submit">Get Person</button>
@@ -36,4 +35,6 @@ Date: Fall, 2018
     </div>
     <div id="result"></div>
   </body>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="../scripts/getPerson.js"></script>
 </html>
