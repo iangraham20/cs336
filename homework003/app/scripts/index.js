@@ -72,7 +72,7 @@ const Person = React.createClass({
 
 //
 const PersonBox = React.createClass({
-  loadPersonsFromServer: function() {
+  loadPeopleFromServer: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -86,10 +86,10 @@ const PersonBox = React.createClass({
     });
   },
   handlePersonSubmit: function(person) {
-    let persons = this.state.data;
+    let people = this.state.data;
     person.id = Date.now();
-    let newPersons = persons.concat([person]);
-    this.setState({data: newPersons});
+    let newPeople = people.concat([person]);
+    this.setState({data: newPeople});
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -99,7 +99,7 @@ const PersonBox = React.createClass({
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        this.setState({data: persons});
+        this.setState({data: people});
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
@@ -108,13 +108,13 @@ const PersonBox = React.createClass({
     return {data: []};
   },
   componentDidMount: function() {
-    this.loadPersonsFromServer();
-    setInterval(this.loadPersonsFromServer, this.props.pollInterval);
+    this.loadPeopleFromServer();
+    setInterval(this.loadPeopleFromServer, this.props.pollInterval);
   },
   render: function() {
     return (
       <div className="personBox">
-        <h1>Persons</h1>
+        <h1>People</h1>
         <PersonList data={this.state.data} />
         <PersonForm onPersonSubmit={this.handlePersonSubmit} />
       </div>
