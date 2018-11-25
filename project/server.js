@@ -47,7 +47,7 @@ app.get('/api/items', function(req, res) {
   });
 })
 .post('/api/items', function(req, res) {
-  db.collection('comments').insertOne({
+  db.collection('items').insertOne({
     item: req.body.item,
     text: req.body.text,
   }, function(err, data) {
@@ -56,7 +56,7 @@ app.get('/api/items', function(req, res) {
       process.exit(1);
     }
   });
-  db.collection('comments').find().toArray(function(err, data) {
+  db.collection('items').find().toArray(function(err, data) {
     if (err) {
       console.error(err);
       process.exit(1);

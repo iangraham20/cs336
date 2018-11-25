@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../css/base.css';
-
-
 import Comment from './comment.js';
-
 
 module.exports = React.createClass({
   render: function() {
@@ -20,5 +17,5 @@ module.exports = React.createClass({
         {commentNodes}
       </div>
     );
-  }});
-
+  }
+});

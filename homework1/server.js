@@ -46,8 +46,7 @@ const people = [
 /* Function: accessor for a person object's seniority
  * Precond: none
  * Postcond: none
- * Parameters: none
- * Returns: seniority, the person's seniority
+ * @return seniority
  */
 const getSeniority = (startDate) => {
     var today = new Date();
@@ -56,22 +55,40 @@ const getSeniority = (startDate) => {
     var m = today.getMonth() - startDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < startDate.getDate())) {
         seniority--;
+    } else {
+        return seniority;
     }
-    return seniority;
 }
 
 /* Function: accessor for a person in a json data structure
  * Precond: none
  * Postcond: if the person was null send a 404 status
- * Parameters: req, a http request; id, a person id#
- * Returns: person, a person object
+ * @param id
+ * @return person
  */
-const findPerson = (req, id) => {
-	const person = people.find(person => person.loginID === id);
+const getPerson = (id) => {
+	const person = people.find(people => people.loginId === id);
 	if (person === null) {
 		res.sendStatus(404);
-	}
-	return person;
+	} else {
+        return person;
+    }
+}
+
+/* Function: accessor for a person object's name
+ * Precond: id matches a person id
+ * Postcond: not found status is sent
+ * @param id
+ * @return name
+ */
+const getName = (id) => {
+    const person = people.find(people => people.loginId === id);
+    if (person === null) {
+        res.sendStatus(404);
+    } else {
+        const name = person.firstName + " " + person.lastName;
+        return name;
+    }
 }
 
 app.get('/', (req, res) => { res.sendFile(__dirname + '/public/documents/doc.html'); });
@@ -81,26 +98,36 @@ app.get('/people', (req, res) => res.json(people));
 
 // respond to '/person/:id' by sending the person's attributes
 app.get('/person/:id', (req, res) => {
-	const person = findPerson(req, req.params.id);
+	const person = getPerson(req.params.id);
 	if (person !== undefined) {
 		res.json(person);
-	}
+	} else {
+        res.sendStatus(404);
+    }
 });
 
 // respond to '/person/:id/name' by sending the person's full name
 app.get('/person/:id/name', (req, res) => {
-	const person = findPerson(req, req.params.id);
-	if (person !== undefined) {
-		res.json(`${person.firstName} ${person.lastName}`);
-	}
+	const name = getName(req.params.id);
+	if (name !== undefined) {
+		res.json(name);
+	} else {
+        res.sendStatus(404);
+    }
 });
 
 // respond to '/person/:id/year' by sending the person's seniority
 app.get('/person/:id/year', (req, res) => {
-	const person = findPerson(req, req.params.id);
+	const person = getPerson(req.params.id);
 	if (person !== undefined) {
-		res.json(`${person.firstName} has been with the company for ${getSeniority(person.startDate)} years.`);
-	}
+		res.json(`${getName(req.params.id)} has been with the company for ${getSeniority(person.startDate)} years.`);
+	} else {
+        res.sendStatus(404);
+    }
+});
+
+app.all("*", (req, res) => {
+    res.sendStatus(404);
 });
 
 // notify via the console that the application is running on the specified host and port

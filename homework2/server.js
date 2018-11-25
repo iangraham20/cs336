@@ -23,56 +23,106 @@ app.use('/', express.static(__dirname + '/public'));
 
 // container full of people objects
 const people = [
-{	firstName: 'George',
+{   firstName: 'George',
     lastName: 'Harrison',
     loginId: 'gh12',
     startDate: '03/15/1992', },
 
-{	firstName: 'Paul',
+{   firstName: 'Paul',
     lastName: 'McCartney',
     loginId: 'jpm84',
     startDate: '08/01/1998', },
 
-{	firstName: 'John',
+{   firstName: 'John',
     lastName: 'Lennon',
     loginId: 'jwl59',
     startDate: '11/34/1990', },
 
-{	firstName: 'Richard',
+{   firstName: 'Richard',
     lastName: 'Starkey',
     loginId: 'rs03',
     startDate: '02/23/1995', }
 ];
 
-/* getYear: calculates the number of years since a specified date
- * Precondition: startDate must be a valid timestamp
- * Postcondition: N/A
- * Inputs: person object
- * Outputs: year, an integer
+/* Function: accessor for a person object's seniority
+ * Precond: none
+ * Postcond: none
+ * @return seniority
  */
-const getYear = (startDate) => {
+const getSeniority = (startDate) => {
     var today = new Date();
     var startDate = new Date(startDate);
-    let year = today.getFullYear() - startDate.getFullYear();
-    const m = today.getMonth() - startDate.getMonth();
+    var seniority = today.getFullYear() - startDate.getFullYear();
+    var m = today.getMonth() - startDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < startDate.getDate())) {
-        year--;
+        seniority--;
+    } else {
+        return seniority;
     }
-    return year;
 }
 
-/* findPerson: retrieves a person object given an ID number
- * Precondition: id must be a valid number
- * Postcondition: status 404 is sent on fail
- * Inputs: req, a request && id, an integer
- * Outputs: person object
+/* Function: accessor for a person in a json data structure
+ * Precond: none
+ * Postcond: if the person was null send a 404 status
+ * @param id
+ * @return person
  */
-const findPerson = (res, id) => {
-    const person = people.find(person => person.loginId === id);
-    if (person === undefined) {
+const getPerson = (id) => {
+    const person = people.find(people => people.loginId === id);
+    if (person === null) {
         res.sendStatus(404);
+    } else {
+        return person;
     }
-    return person;
+}
+
+/* Function: accessor for a person object's name
+ * Precond: id matches a person id
+ * Postcond: not found status is sent
+ * @param id
+ * @return name
+ */
+const getName = (id) => {
+    const person = people.find(people => people.loginId === id);
+    if (person === null) {
+        res.sendStatus(404);
+    } else {
+        const name = person.firstName + " " + person.lastName;
+        return name;
+    }
+}
+
+/* Function: mutator for a person in a json data structure
+ * Precond: none
+ * Postcond: if the person was null send a 404 status
+ * @param id
+ * @return person
+ */
+const setPerson = (req) => {
+    const person = people.find(people => people.loginId === req.params.id);
+    if (person === null) {
+        res.sendStatus(404);
+    } else {
+        person.firstName = req.params.firstName;
+        person.lastName = req.params.lastName;
+        person.loginId = req.params.loginId;
+        person.startDate = req.params.startDate;
+        return person;
+    }
+}
+
+/* Function:
+ * Precond: 
+ * Postcond: if the person was null send a 404 status
+ * @param id
+ */
+const removePerson = (id) => {
+    const personIndex = people.findIndex(people => people.loginId === id);
+    if (personIndex === null) {
+        res.sendStatus(404);
+    } else {
+        people.splice(personIndex, 1);
+    }
 }
 
 // respond to '/' by sending the addPerson file
@@ -80,11 +130,11 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/public/addPerson.html'));
 
 // respond to '/people' by sending the json data in people
 app.get('/people', (req, res) => res.json(people))
-    .post('/people', (req, res) => {
+.post('/people', (req, res) => {
     for (let person of people) {
         if (person.loginId === req.body.loginId) {
-        res.sendStatus(400);
-        return;
+            res.sendStatus(400);
+            return;
         }
     }
     people.push(req.body);
@@ -93,38 +143,54 @@ app.get('/people', (req, res) => res.json(people))
 
 // respond to '/person/:id' by sending the person's attributes
 app.get('/person/:id', (req, res) => {
-  const person = findPerson(res, req.params.id);
-  if (person !== undefined) {
-    res.json(person);
-  }
-});
-
-
-app.delete('/person/:id', function(req, res) {
-for(var i = 0; i < people.length; i++) {
-    //console.log(peopleList[i].id);
-    if (people[i].id == req.params.id) {
-      delete people[i];
-      res.send("Deleted the Person with ID=" + req.params.id);
+    const person = getPerson(req.params.id);
+    if (person !== undefined) {
+        res.json(person);
+    } else {
+        res.sendStatus(404);
     }
-  }
-  res.send( "404 Not found");
+})
+.put('/person/:id', (req, res) => {
+    // TODO: some reason req has only a loginId
+    const person = setPerson(req);
+    if (person !== undefined) {
+        res.json(person);
+    } else {
+        res.sendStatus(404);
+    }
+})
+.delete('/person/:id', function(req, res) {
+    const person = getPerson(req.params.id);
+    if (person !== undefined) {
+        removePerson(req.params.id);
+        res.send("Deleted the person with the loginId " + req.params.id);
+    } else {
+        res.sendStatus(404);
+    }
 });
 
 // respond to '/person/:id/name' by sending the person's full name
 app.get('/person/:id/name', (req, res) => {
-	const person = findPerson(req, req.params.id);
-	if (person !== undefined) {
-		res.json(`${person.firstName} ${person.lastName}`);
-	}
+    const name = getName(req.params.id);
+    if (name !== undefined) {
+        res.json(name);
+    } else {
+        res.sendStatus(404);
+    }
 });
 
 // respond to '/person/:id/year' by sending the person's seniority
 app.get('/person/:id/year', (req, res) => {
-	const person = findPerson(res, req.params.id);
-	if (person !== undefined) {
-		res.json(getYear(person.startDate));
-	}
+    const person = getPerson(req.params.id);
+    if (person !== undefined) {
+        res.json(`${getName(req.params.id)} has been with the company for ${getSeniority(person.startDate)} years.`);
+    } else {
+        res.sendStatus(404);
+    }
+});
+
+app.all("*", (req, res) => {
+    res.sendStatus(404);
 });
 
 // display a message on the console acknowleding that the app is running

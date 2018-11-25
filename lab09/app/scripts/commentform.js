@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import '../css/base.css';
 
-
 module.exports = React.createClass({
   getInitialState: function() {
     return {author: '', text: ''};
@@ -42,6 +41,5 @@ module.exports = React.createClass({
         <input type="submit" value="Post" />
       </form>
     );
-  }});
-
-
+  }
+});

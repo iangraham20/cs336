@@ -20,9 +20,27 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="item">
-        <h2 className="itemAuthor">
-          {this.props.author}
+        <h2 className="itemName">
+          {this.props.name}
         </h2>
+        <div className="itemDiscription">
+          {this.props.discription}
+        </div>
+        <div className="itemAge">
+          {this.props.age}
+        </div>
+        <div className="itemDiscription">
+          {this.props.origin}
+        </div>
+        <div className="itemManufacturer">
+          {this.props.manufacturer}
+        </div>
+        <div className="itemSignificance">
+          {this.props.significance}
+        </div>
+        <div className="itemRelated">
+          {this.props.related}
+        </div>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
       </div>
     );

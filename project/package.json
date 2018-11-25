@@ -2,7 +2,7 @@
   "name": "Museum-Holdings-Project",
   "author": "Ian Christensen, Derek Fisher, Cameron Dewey",
   "version": "0.0.0",
-  "description": "Museum item catalog",
+  "description": "An item catalog for all the items in a musuem",
   "license": "ISC",
   "main": "server.js",
   "dependencies": {

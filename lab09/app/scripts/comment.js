@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom';
 import Remarkable from 'remarkable';
 import '../css/base.css';
 
-
 module.exports = React.createClass({
   rawMarkup: function() {
     var md = new Remarkable();
-    //console.log("1" == 1);
     var rawMarkup = md.render(this.props.children.toString());
     return { __html: rawMarkup };
   },
@@ -24,5 +22,3 @@ module.exports = React.createClass({
     );
   }
 });
-
-

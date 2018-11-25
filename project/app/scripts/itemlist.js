@@ -15,8 +15,9 @@ module.exports = React.createClass({
   render: function() {
     var itemNodes = this.props.data.map(function(item) {
       return (
-        <Item author={item.author} key={item.id}>
-          {item.text}
+        <Item name={item.name} key={item.id}>
+          {item.description}
+          // TODO: Decide what goes here and how to format it
         </Item>
       );
     });
