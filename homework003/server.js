@@ -50,6 +50,8 @@ app.post('/api/people', function(req, res) {
             id: Date.now(),
             firstName: req.body.firstName,
             lastName: req.body.lastName,
+            loginId: req.body.loginId,
+            startDate: req.body.startDate,
         };
         people.push(newPerson);
         fs.writeFile(PEOPLE_FILE, JSON.stringify(people, null, 4), function(err) {

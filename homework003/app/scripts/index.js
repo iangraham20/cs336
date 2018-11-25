@@ -1,7 +1,7 @@
 //
 const PersonForm = React.createClass({
   getInitialState: function() {
-    return {firstName: '', lastName: ''};
+    return {firstName: '', lastName: '', loginId: '', startDate: ''};
   },
   handleFirstNameChange: function(e) {
     this.setState({firstName: e.target.value});
@@ -9,30 +9,48 @@ const PersonForm = React.createClass({
   handleLastNameChange: function(e) {
     this.setState({lastName: e.target.value});
   },
+  handleLoginIdChange: function(e) {
+    this.setState({loginId: e.target.value});
+  },
+  handleStartDateChange: function(e) {
+    this.setState({startDate: e.target.value});
+  },
   handleSubmit: function(e) {
     e.preventDefault();
     let firstName = this.state.firstName.trim();
     let lastName = this.state.lastName.trim();
-    if (!lastName || !firstName) {
+    let loginId = this.state.loginId.trim();
+    let startDate = this.state.startDate.trim();
+    if (!firstName || !lastName || !loginId || !startDate) {
       return;
     }
-    this.props.onPersonSubmit({firstName, lastName});
-    this.setState({firstName: '', lastName: ''});
+    this.props.onPersonSubmit({firstName, lastName, loginId, startDate});
+    this.setState({firstName: '', lastName: '', loginId: '', startDate: ''});
   },
   render: function() {
     return (
       <form className="personForm" onSubmit={this.handleSubmit}>
         <input
           type="text"
-          placeholder="Your name"
+          placeholder="Your first name"
           value={this.state.firstName}
           onChange={this.handleFirstNameChange} />
         <input
           type="text"
-          placeholder="Say something..."
+          placeholder="Your last name"
           value={this.state.lastName}
           onChange={this.handleLastNameChange} />
-        <input type="submit" value="Post" />
+        <input
+          type="text"
+          placeholder="Your login ID"
+          value={this.state.loginId}
+          onChange={this.handleLoginIdChange} />
+        <input
+          type="date"
+          placeholder="Your start date"
+          value={this.state.startDate}
+          onChange={this.state.handleStartDateChange} />
+        <input type="submit" value="Submit" />
       </form>
     );
   }
@@ -43,8 +61,11 @@ const PersonList = React.createClass({
   render: function() {
     const personNodes = this.props.data.map(function(person) {
       return (
-        <Person firstName={person.firstName} key={person.id}>
-          {person.lastName}
+        <Person firstName={person.firstName + " "} lastName={person.lastName} key={person.id}>
+          {"First Name: " + person.firstName}
+          {"Last Name: " + person.lastName}
+          {"Login ID: " + person.loginId}
+          {"Start Date: " + person.startDate}
         </Person>
       );
     });
@@ -61,8 +82,9 @@ const Person = React.createClass({
   render: function() {
     return (
       <div className="person">
-        <h2 className="personFirstName">
+        <h2 className="personName">
           {this.props.firstName}
+          {this.props.lastName}
         </h2>
         {this.props.children}
       </div>
