@@ -1,7 +1,7 @@
 {
-  "name": "lab08",
+  "name": "homework3",
   "version": "1.0.0",
-  "description": "This sample code supports Calvin College [CS 336](https://cs.calvin.edu/courses/cs/336/kvlinden) [Unit 8: React](https://cs.calvin.edu/courses/cs/336/kvlinden/08react/index.html).",
+  "description": "This application implements an mLab database and React front-end for the person data",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

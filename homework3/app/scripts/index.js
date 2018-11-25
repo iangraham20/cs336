@@ -1,4 +1,3 @@
-//
 const PersonForm = React.createClass({
   getInitialState: function() {
     return {firstName: '', lastName: '', id: '', startDate: ''};
@@ -54,8 +53,6 @@ const PersonForm = React.createClass({
     );
   }
 });
-
-//
 const PersonList = React.createClass({
   render: function() {
     const personNodes = this.props.data.map(function(person) {
@@ -75,8 +72,6 @@ const PersonList = React.createClass({
     );
   }
 });
-
-//
 const Person = React.createClass({
   render: function() {
     return (
@@ -90,8 +85,6 @@ const Person = React.createClass({
     );
   }
 });
-
-//
 const PersonBox = React.createClass({
   loadPeopleFromServer: function() {
     $.ajax({
@@ -141,8 +134,6 @@ const PersonBox = React.createClass({
     );
   }
 });
-
-//
 ReactDOM.render(
   <PersonBox url="/people" pollInterval={2000} />,
   document.getElementById('content')
