@@ -10,10 +10,10 @@ MongoDB document structure:
 Item {
 	"id": random_integer
 	"name": Item_name
-	"description": Item_description
-	"manufactureDate": Item_age
 	"origin": location_created
+	"description": Item_description
 	"manufacturer": company_name
+	"manufactureDate": Item_age
 	"significance": historical_impact
 	"related": related_Items
 }
