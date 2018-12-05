@@ -32,6 +32,6 @@
   "scripts": {
     "build": "webpack --progress",
     "dev": "node server.js & webpack-dev-server --progress",
-    "start": "node server.js"
+    "start": "kill $(pgrep node) ; node server.js &"
   }
 }
